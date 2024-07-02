@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--i have included everything here so that others can learn and follow whats happening-->
+    <!--however it good to use seperate files for js, html, css-->
+    <!--for html files it good to use Template inheritance-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>joshua portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            scroll-behavior: smooth;
+            padding-top: 60px;
+        }
+
+        section {
+            padding-top: 60px; 
+            margin-top: -60px;
+        }
+
+        /* CSS for hover effects */
+        .hover-expand {
+            transition: transform 0.3s;
+        }
+
+        .hover-expand:hover {
+            transform: scale(1.05);
+        }
+
+        .hover-text {
+            transition: color 0.3s;
+        }
+
+        .hover-text:hover {
+            color: #1c64f2; 
+        }
+
+        .transition-opacity {
+        transition: opacity 1s ease-in-out;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<!--navbar -->
+<nav class="border-gray-200 bg-gray-700 text-white fixed top-0 left-0 mb-2 w-full z-50">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap">Anko-J</span>
+        </a>
+        <button id="navbar-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-menu">
+            <ul id="navbar" class="flex flex-col font-medium mt-4 rounded-lg text-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                <li>
+                    <a href="#home" class="block py-2 px-3 md:p-0 text-white rounded md:bg-transparent" aria-current="page">Home</a>
+                </li>
+
+                <li>
+                    <a href="#skills" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Skills</a>
+                </li>
+                
+                <li>
+                    <a href="#testimonials" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Testimonials</a>
+                </li>
+
+                <li>
+                    <a href="#services" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Services</a>
+                </li>
+                
+                <li>
+                    <a href="#pricing" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Pricing</a>
+                </li>
+                <li>
+                    <a href="#contacts" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Profile Section -->
+<section id="home" class="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-8 flex flex-col md:flex-row items-center">
+    <!-- Profile Picture Div -->
+    <div class="h-auto w-auto md:w-1/4 md:h-1/4 mb-6 md:mb-0 md:mr-3 hover-expand rounded-lg md:rounded-full overflow-hidden">
+        <img src="{{ url_for('static', filename='images/ankoj21.jpg') }}" alt="Profile Picture" class="w-full h-full object-cover">
+    </div>    
+    
+    <!-- Paragraph Div -->
+    <div class="w-full ml-6 md:w-2/3">
+        <h2 class="text-2xl font-bold mb-3">Joshua Phiri</h2>
+        <p class="text-gray-700 mb-6 hover-text" data-text="A dedicated and skilled professional with a background in Computer Systems and Security. 
+        Highly proficient in computer programming, networking, and security. Leveraging a solid foundation in both development and infrastructure, I excel in creating robust, secure, and efficient solutions. My expertise in these domains allows me to handle complex technical challenges and deliver high-quality results.">
+            <!-- The text will be typed here -->
+        </p>
+        <!-- Tertiary Education Section -->
+        <div class="border-t pt-4">
+            <h3 class="text-lg font-semibold">Academic Qualification</h3>
+            <p class="text-gray-700">
+                <small>(Bachelor's Degree in Computer Systems and Security)</small>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Skills Section -->
+<section id="skills" class="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-10">
+    <h2 class="text-2xl font-bold mb-8 text-center">Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Skill Card 1 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Programming Languages</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+        <!-- Skill Card 2 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Frameworks & Libraries</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Flask</li>
+                <li>Django</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Spring Boot</li>
+            </ul>
+        </div>
+        <!-- Skill Card 3 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Database Management</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+                <li>SQLite</li>
+                <li>Redis</li>
+            </ul>
+        </div>
+        <!-- Skill Card 4 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">DevOps & Tools</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>AWS</li>
+                <li>Git</li>
+                <li>Jenkins</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-10">
+    <h2 class="text-2xl font-bold mb-8 text-center">Testimonials</h2>
+    <div class="flex flex-col md:flex-row md:space-x-6">
+        <!-- Testimonial 1 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <blockquote class="text-gray-700 italic">
+                "Joshua's attention to detail and problem-solving skills are unmatched. He delivered our project ahead of schedule and exceeded our expectations."
+            </blockquote>
+            <cite class="mt-4 block font-semibold">Lusungu Nyasulu, Graphic Designer</cite>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <blockquote class="text-gray-700 italic">
+                "Working with Joshua was a pleasure. His professionalism and technical expertise were evident throughout the collaboration."
+            </blockquote>
+            <cite class="mt-4 block font-semibold">Joshua Jacob, Computer Programer</cite>
+        </div>
+    </div>
+</section>
+
+<!-- Service Section -->
+<section id="services" class="py-20 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-center text-gray-800 mb-10">Our Services</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <!-- Service Item 1 -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Web Development</h3>
+                    <p class="text-gray-600 leading-relaxed">Custom web development solutions tailored to your business needs.</p>
+                    <ul class="mt-4 text-gray-600">
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Frontend and backend development</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Responsive and mobile-friendly designs</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> E-commerce and CMS integration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <!-- Service Item 2 -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Cybersecurity Consulting</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert cybersecurity consulting to secure your digital assets and protect against threats.</p>
+                    <ul class="mt-4 text-gray-600">
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Vulnerability assessments</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Incident response planning</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Compliance and regulatory guidance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service Item 3 -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Networking</h3>
+                    <p class="text-gray-600 leading-relaxed">Robust networking solutions to ensure seamless connectivity and performance.</p>
+                    <ul class="mt-4 text-gray-600">
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Network design and optimization</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Routing and switching configurations</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> VPN and firewall setup</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service Item 4 -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Server Administration</h3>
+                    <p class="text-gray-600 leading-relaxed">Efficient server management and administration for reliable performance.</p>
+                    <ul class="mt-4 text-gray-600">
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Server setup and configuration</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Monitoring and maintenance</li>
+                        <li class="mb-2"><span class="text-green-500 mr-2">&#10004;</span> Backup and disaster recovery</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!--pricing section -->
+<section id="pricing" class="py-20 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-center text-gray-800 mb-10">Our Pricing</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white divide-y divide-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b-2 border-gray-200">Service</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b-2 border-gray-200">Description</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b-2 border-gray-200">Price</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b-2 border-gray-200">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <!-- Price Item 1 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">Web Development</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">Tailored web development solutions.</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200">Negotiable</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-200">
+                            <a href="#" class="text-blue-500 hover:underline">Contact us</a>
+                        </td>
+                    </tr>
+                    
+                    <!-- Price Item 2 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">Cloud Infrastructure</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">Scalable and secure cloud solutions.</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200">Negotiable</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-200">
+                            <a href="#" class="text-blue-500 hover:underline">Contact us</a>
+                        </td>
+                    </tr>
+                    
+                    <!-- Price Item 3 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">Cybersecurity Consulting</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">Expert cybersecurity consulting services.</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200">Negotiable</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-200">
+                            <a href="#" class="text-blue-500 hover:underline">Contact us</a>
+                        </td>
+                    </tr>
+
+                    <!-- Price Item 4 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">Networking</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">Advanced networking solutions.</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200">Negotiable</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-200">
+                            <a href="#" class="text-blue-500 hover:underline">Contact us</a>
+                        </td>
+                    </tr>
+
+                    <!-- Price Item 5 -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">Server Administration</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">Efficient server management.</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200">Negotiable</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm border-b border-gray-200">
+                            <a href="#" class="text-blue-500 hover:underline">Contact us</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!--contact and footer section-->
+<footer id="contacts" class="bg-gray-700 text-white py-8">
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-center">
+            <!-- Contact Section -->
+            <div class="w-full lg:w-1/3 px-4 mb-4 lg:mb-0">
+                <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fa fa-envelope mx-2" aria-hidden="true"></i>
+                        <span>Email: <a href="mailto:info@example.com" class="text-blue-500 hover:underline">joshua.willfully414@slmails.com</a></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa fa-phone mx-2" aria-hidden="true"></i>
+                        <span>Phone: <a href="tel:+1234567890" class="text-blue-500 hover:underline">+265 (883) 421-393</a></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa fa-location-arrow mx-2" aria-hidden="true"></i>
+                        <span>Address: Chimwankhunda, Blantyre, Malawi</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Contact Section -->
+
+            <!-- Social Links Section -->
+            <div class="w-full lg:w-1/3 px-4 mb-4 lg:mb-0">
+                <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                <ul class="flex space-x-4">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="facebook" class="h-auto w-auto md:w-9 md:h-9 filter invert">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="{{ url_for('static', filename='images/instagram.png') }}" alt="instagram" class="h-auto w-auto md:w-9 md:h-9 filter invert">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="{{ url_for('static', filename='images/twitterx.png') }}" alt="twitter" class="h-auto w-auto md:w-9 md:h-9 filter invert">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Social Links Section -->
+
+            <!-- About Section -->
+            <div class="w-full lg:w-1/3 px-4 mb-4 lg:mb-0">
+                <h3 class="text-xl font-semibold mb-4">About Me</h3>
+                <p class="text-sm">Expert in computer programming, networking, and security. 
+                    Passionate about building secure and efficient systems.
+                </p>
+            </div>
+            <!-- End About Section -->
+        </div>
+    </div>
+</footer>
+<!-- End Footer Section -->
+
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Highlight current section in the navbar
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navbarLinks = document.querySelectorAll('#navbar a');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navbarLinks.forEach(link => {
+                link.classList.remove('underline');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('underline');
+                }
+            });
+        });
+
+        // Toggle navbar menu on small screens
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        navbarToggle.addEventListener('click', function() {
+            navbarMenu.classList.toggle('hidden');
+        });
+
+        // Typing animation for paragraph
+        const paragraph = document.querySelector("#home .hover-text");
+        const text = paragraph.getAttribute('data-text');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                paragraph.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 25); // Adjust the speed here
+            }
+        }
+
+        type();
+    });
+</script>
+
+
+</body>
+</html>
