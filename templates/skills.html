@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Skills - Joshua Portfolio{% endblock %}
+
+{% block content %}
+<!-- Skills Section -->
+<section id="skills" class="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-10">
+    <h2 class="text-2xl font-bold mb-8 text-center">Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Skill Card 1 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Programming Languages</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+        <!-- Skill Card 2 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Frameworks & Libraries</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Flask</li>
+                <li>Django</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Spring Boot</li>
+            </ul>
+        </div>
+        <!-- Skill Card 3 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">Database Management</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+                <li>SQLite</li>
+                <li>Redis</li>
+            </ul>
+        </div>
+        <!-- Skill Card 4 -->
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow hover-expand">
+            <h3 class="text-xl font-semibold text-gray-900">DevOps & Tools</h3>
+            <ul class="mt-4 text-gray-700">
+                <li>Docker</li>
+                <li>Kubernetes</li>
+                <li>AWS</li>
+                <li>Git</li>
+                <li>Jenkins</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
